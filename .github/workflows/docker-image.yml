@@ -28,16 +28,12 @@ jobs:
         echo "Fin del login"
 
     - name: Build Docker Image
-      env:
-        DOCKER_USER: ${{ secrets.DOCKER_USER }}
       run: |
-        docker build -t $DOCKER_USER/graphql-actions:0.0.2 .
+        docker build -t eduysanchez/graphql-actions:0.0.2 .
     
     - name: Push Docker Image tag
-      env:
-        DOCKER_USER: ${{ secrets.DOCKER_USER }}
-        run: |
-          docker push $DOCKER_USER/graphql-actions:0.0.2 .
+      run: |
+        docker push eduysanchez/graphql-actions:0.0.2 .
       
     # - name: Build the Docker image
     #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
